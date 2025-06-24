@@ -1,0 +1,275 @@
+.main-layout {
+    display: flex;
+    min-height: 100vh; 
+    width: 100%; 
+    margin: 0;
+}
+
+/* Panel de la izquierda (imagen) */
+.left-panel {
+    flex: 1; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;     
+    overflow: hidden; 
+}
+
+.left-panel img {
+    width: 100%;    
+    height: 100%;  
+    object-fit: cover; 
+    display: block; 
+}
+
+/* Panel de la derecha (menú, texto, footer) */
+.right-panel {
+    flex: 1; /* Permite que este panel crezca y ocupe el espacio restante (el otro 50%) */
+    display: flex; /* Convierte este panel en un contenedor Flexbox también */
+    flex-direction: column; /* Apila su contenido (header, section, footer) verticalmente */
+    background-color: #fff; /* Color de fondo */
+    padding: 20px; /* Padding interno para el contenido de la derecha */
+}
+
+/* --- Estilos de Navegación (sin cambios significativos, ya que son internos del right-panel) --- */
+.barrabavegacion {
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.barrabavegacion nav {
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.barrabavegacion nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.barrabavegacion nav ul li {
+    margin: 0 15px;
+}
+
+.barrabavegacion nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+.barrabavegacion nav ul li a:hover {
+    color: orangered;
+}
+
+/* --- Estilos de Artículo 2 y Pie de Página (sin cambios significativos, ya que son internos del right-panel) --- */
+.articulo2 {
+    flex-grow: 1; 
+    padding: 20px 0;
+    text-align: center;
+}
+
+.articulo2 article h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.articulo2 article p {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.piedepagina {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Empuja el footer hacia abajo si hay espacio en right-panel */
+}
+
+.piedepagina div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* --- Media Queries para Responsive (Ajuste para móviles) --- */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column; /* Apila los paneles (left y right) verticalmente */
+    }
+
+    .left-panel {
+        display: none; /* ¡OCULTA COMPLETAMENTE EL PANEL IZQUIERDO Y SU IMAGEN EN MÓVILES! */
+        /* Ya no necesitas flex: none; o height: auto; si lo ocultas con display: none; */
+    }
+
+    .right-panel {
+        flex: 1; /* Ocupa todo el espacio restante (ahora es el único visible) */
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        padding: 10px; /* Ajusta el padding para móviles si es necesario */
+    }
+
+    /* Ajustes específicos para el menú de navegación en móvil */
+    .barrabavegacion {
+        height: auto; /* Permite que la altura de la barra se ajuste al contenido del menú apilado */
+    }
+
+    .barrabavegacion nav {
+        height: auto; /* Ajusta la altura del nav también */
+        padding: 10px 0; /* Padding vertical para el nav */
+    }
+
+    .barrabavegacion nav ul {
+        flex-direction: column; /* ¡Apila los ítems del menú verticalmente! */
+        height: auto; /* Permite que la lista se ajuste a la altura del contenido apilado */
+        align-items: center; /* Centra los ítems del menú si la lista es más ancha */
+        /* Si quieres que los ítems ocupen todo el ancho disponible, puedes añadir width: 100%; aquí */
+    }
+
+    .barrabavegacion nav ul li {
+        margin: 10px 0; /* Espacio vertical entre los ítems del menú */
+        width: 100%; /* Opcional: hace que cada ítem ocupe todo el ancho del ul */
+        text-align: center; /* Centra el texto dentro de cada li si se le dio width: 100% */
+    }
+
+    .barrabavegacion nav ul li a {
+        padding: 10px 0; /* Ajusta el padding para enlaces en menú apilado */
+        width: 100%; /* Asegura que el área clicable ocupe todo el ancho del li */
+    }
+
+    /* Ajustes para el artículo 2 y el pie de página en móvil */
+    .articulo2 {
+        padding: 15px 10px; /* Reduce el padding horizontal del artículo */
+    }
+
+    .articulo2 article h1 {
+        font-size: 1.8rem; /* Ajusta el tamaño del título */
+    }
+
+    .articulo2 article p {
+        font-size: 0.9rem; /* Ajusta el tamaño del párrafo */
+    }
+
+    .piedepagina {
+        padding: 15px; /* Ajusta el padding del footer */
+    }
+}
+
+/* Contenedor principal del formulario */
+.contact-form-container {
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 50px auto; /* Centra el formulario y le da margen superior/inferior */
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el título h2 */
+}
+
+.contact-form-container h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* Estilos para el formulario en sí */
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Apila los campos verticalmente */
+    gap: 15px; /* Espacio entre cada grupo de campo */
+}
+
+/* Estilos para cada grupo de campo (label + input/textarea) */
+.form-group {
+    text-align: left; /* Alinea el texto del label a la izquierda */
+}
+
+.form-group label {
+    display: block; /* Hace que el label ocupe su propia línea */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%; /* Hacen que los campos ocupen todo el ancho disponible */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el width */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el contorno azul por defecto del navegador */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Estilos para el botón de envío */
+.submit-button {
+    background-color: #28a745; /* Un verde vibrante */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    align-self: center; /* Centra el botón si el formulario es un flex-column */
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background-color: #218838; /* Un verde más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Un pequeño efecto de levantamiento */
+}
+
+.submit-button:active {
+    transform: translateY(0); /* Vuelve a su posición original al hacer clic */
+}
+
+/* Media Queries para que el formulario sea responsive */
+@media (max-width: 768px) {
+    .contact-form-container {
+        margin: 30px 15px; /* Menos margen lateral en pantallas pequeñas */
+        padding: 20px;
+    }
+
+    .contact-form-container h2 {
+        font-size: 1.8em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .submit-button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
